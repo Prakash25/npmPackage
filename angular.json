@@ -102,6 +102,40 @@
           }
         }
       }
+    },
+    "tvmaze": {
+      "projectType": "library",
+      "root": "projects/tvmaze",
+      "sourceRoot": "projects/tvmaze/src",
+      "prefix": "tm",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/tvmaze/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/tvmaze/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/tvmaze/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tvmaze/src/test.ts",
+            "tsConfig": "projects/tvmaze/tsconfig.spec.json",
+            "karmaConfig": "projects/tvmaze/karma.conf.js"
+          }
+        }
+      }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

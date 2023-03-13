@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { TvmazeService } from 'tvmaze';
 
 @Component({
   selector: 'dom-root',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'lib-comp';
+  show$:Observable<any>;
+  constructor(private tvmaze: TvmazeService){
+    this.show$= this.tvmaze.getShow(336)
+
+  }
 }
